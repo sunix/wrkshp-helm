@@ -1,0 +1,12 @@
+[
+    {
+        "op": "replace",
+        "path": "/objects/0/spec/limits/1/max/cpu",
+        "value": 16
+    },
+    {
+        "op": "replace",
+        "path": "/objects/0/spec/limits/0/max/cpu",
+        "value": 16
+    }
+]

@@ -1,0 +1,4 @@
+# Default values for Code Ready Workspaces Workshop namespace.
+installTargetNamespace: crw
+openShiftoAuth: true
+selfSignedCert: false

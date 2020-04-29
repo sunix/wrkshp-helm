@@ -1,0 +1,9 @@
+apiVersion: v2
+name: crw-workshop
+description: Code Ready Workspaces Workshop
+
+type: application
+
+version: 0.0.1
+
+appVersion: 2.1.0
