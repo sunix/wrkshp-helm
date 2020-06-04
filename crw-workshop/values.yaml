@@ -1,4 +1,5 @@
-# Default values for Code Ready Workspaces Workshop namespace.
+# Default values for Code Ready Workspaces Workshop setup
 installTargetNamespace: crw
+installServiceBrokerTargetNamespace: openshift-template-service-broker
 openShiftoAuth: true
 selfSignedCert: false

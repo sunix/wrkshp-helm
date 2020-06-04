@@ -25,11 +25,10 @@ oc patch imagestream --namespace openshift java --patch "$(cat patches/update-ja
 echo "Update CPU limit..."
 oc patch template --namespace openshift-config project-request --type='json' -p="$(cat patches/update-cpu-limit.yaml)" || echo "No project request configured"
 
-#echo "Update Service Catalog API Server and Controller Manager..."
-# oc patch servicecatalogapiservers cluster --type='json' -p="$(cat patches/update-service-catalog-disable.yaml)"
-# oc patch servicecatalogcontrollermanagers cluster --type='json' -p="$(cat patches/update-service-catalog-disable.yaml)"
-#oc patch servicecatalogapiservers cluster --type='json' -p="$(cat patches/update-service-catalog.yaml)"
-#oc patch servicecatalogcontrollermanagers cluster --type='json' -p="$(cat patches/update-service-catalog.yaml)"
+echo "Update Service Catalog API Server and Controller Manager..."
+oc patch servicecatalogapiservers cluster --type='json' -p="$(cat patches/update-service-catalog.yaml)"
+oc patch servicecatalogcontrollermanagers cluster --type='json' -p="$(cat patches/update-service-catalog.yaml)"
+
 
 # Install operator with helm / also creates namespace
 helm install crw-workshop ./crw-workshop
@@ -60,4 +59,4 @@ while [[ $(oc get pods --all-namespaces --selector="app=codeready,component=code
 done
 
 CODEREADY_WORKSPACE_LINK="$(oc get consolelink/che --all-namespaces -o 'jsonpath={..href}')\n"
-printf "\n\nCodeReady Workspaces URL is: ${CODEREADY_WORKSPACE_LINK}"
+printf "\n\nCodeReady Workspaces available at: ${CODEREADY_WORKSPACE_LINK}"
