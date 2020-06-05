@@ -56,17 +56,17 @@ while [[ $(oc get pods --all-namespaces --selector="app=codeready,component=code
    if [ "${EXIST}" == "[]" ]; then
      LOG_LINE="⌛️ Waiting for CodeReady Workspaces Operator to boot..."
      if [ "${LOG_LINE}" != "${PREVIOUS_LOG_LINE}" ]; then
-       printf "\33[2K\r${LOG_LINE}"
+       printf "\33[2K\r%s" "${LOG_LINE}"
        PREVIOUS_LOG_LINE=${LOG_LINE}
      fi
    else
      # Display last line of log during wait
      POD_NAME=$(oc get pods --all-namespaces --selector="app=codeready-operator" -o=jsonpath='{.items[0].metadata.name}')
      POD_NAMESPACE=$(oc get pods --all-namespaces --selector="app=codeready-operator" -o=jsonpath='{.items[0].metadata.namespace}')
-     WIDTH=$(expr $(tput cols) - 10)
+     WIDTH=$(($(tput cols) - 10))
      LOG_LINE=$(oc logs --tail=1 -n "${POD_NAMESPACE}" "${POD_NAME}"  2>/dev/null | sed -n 's/.*msg=\"\(.*\)\".*/\1/p' | cut -c-$WIDTH)
      if [ "${LOG_LINE}" != "${PREVIOUS_LOG_LINE}" ]; then
-       printf "\33[2K\r⌛️ ${LOG_LINE}..."
+       printf "\33[2K\r⌛️ %s..." "${LOG_LINE}"
        PREVIOUS_LOG_LINE=${LOG_LINE}
      fi
    fi
