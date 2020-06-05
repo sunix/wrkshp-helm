@@ -1,4 +1,5 @@
 # Red Hat CodeReady Workspaces Installer for RHPDS
+![screenshot](../assets/screenshot.png)
 
 ## Pre-requisites
 - [helm 3](https://helm.sh/) is available.
@@ -38,4 +39,4 @@ $ ./setup-workshop.sh
 ```
 
 ### Demo
-
+![installer](../assets/installer.gif)
