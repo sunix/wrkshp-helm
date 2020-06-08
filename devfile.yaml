@@ -6,7 +6,7 @@ projects:
 
   - source:
       type: git
-      location: 'https://github.com/benoitf/wrkshp-helm/tree/master/crw-workshop'
+      location: 'https://github.com/benoitf/wrkshp-helm'
     name: crw-workshop
 
 
