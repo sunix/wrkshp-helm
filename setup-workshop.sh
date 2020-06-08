@@ -75,3 +75,6 @@ done
 
 CODEREADY_WORKSPACE_LINK="$(oc get consolelink/che --all-namespaces -o 'jsonpath={..href}')"
 printf "\33[2K\r🎉 CodeReady Workspaces available at: %s\n" "${CODEREADY_WORKSPACE_LINK}"
+
+WORKSHOP_WORKSPACE_LINK="${CODEREADY_WORKSPACE_LINK}/f/?url=https://github.com/redhat-developer-demos/quarkus-reactjs-postit-app"
+printf "🧪 Devfile workspace: %s\n" "${WORKSHOP_WORKSPACE_LINK}"
