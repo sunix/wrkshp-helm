@@ -1,0 +1,32 @@
+on:
+  push:
+    paths-ignore:
+    - '**.md'
+
+jobs:
+  build:
+    env:
+      IMAGE_NAME: quay.io/fbenoit/crw-workshop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone source code
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      
+      - name: Docker login
+        uses: docker/login-action@v1
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_PASSWORD }}
+      
+      - name: Docker Buildx
+        uses: crazy-max/ghaction-docker-buildx@v1.5.0
+        with:
+          buildx-version: v0.4.1
+      
+      - name: Build and push image
+        run: |
+          echo "Building image ${IMAGE_NAME}"
+          docker buildx build --platform linux/amd64 -t "${IMAGE_NAME}" --push .
