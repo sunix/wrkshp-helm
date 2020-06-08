@@ -2,14 +2,6 @@ apiVersion: 1.0.0
 metadata:
   generateName: setup-crw-workshop
 
-projects:
-
-  - source:
-      type: git
-      location: 'https://github.com/benoitf/wrkshp-helm'
-    name: crw-workshop
-
-
 components:
 
   - alias: workshop-installer
