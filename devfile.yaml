@@ -1,0 +1,22 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: setup-crw-workshop
+
+projects:
+
+  - source:
+      type: git
+      location: 'https://github.com/benoitf/wrkshp-helm/tree/master/crw-workshop'
+    name: crw-workshop
+
+
+components:
+
+  - alias: workshop-installer
+    type: dockerimage
+    image: quay.io/fbenoit/crw-workshop
+    memoryLimit: 128Mi
+    command: ['sleep']
+    args: ['infinity']
+    mountSources: true
+
