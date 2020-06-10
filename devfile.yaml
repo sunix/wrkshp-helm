@@ -1,6 +1,6 @@
 apiVersion: 1.0.0
 metadata:
-  generateName: setup-crw-workshop
+  generateName: setup-crw-workshop-
 
 components:
 
@@ -12,3 +12,10 @@ components:
     args: ['infinity']
     mountSources: true
 
+commands:
+  - name: setup-workshop.sh
+    actions:
+      - type: exec
+        command: ./setup-workshop.sh
+        component: workshop-installer
+        workdir: /projects/wrkshp-helm
