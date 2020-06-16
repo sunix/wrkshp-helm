@@ -1,3 +1,5 @@
+[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/benoitf/wrkshp-helm)
+
 # Red Hat CodeReady Workspaces Installer for RHPDS
 ![screenshot](../assets/screenshot.png)
 
@@ -35,6 +37,7 @@ Clone this repository
 ```bash
 $ git clone https://github.com/benoitf/wrkshp-helm
 $ cd wrkshp-helm
+$ oc login <openshift-cluster-url>
 $ ./setup-workshop.sh
 ```
 
