@@ -1,4 +1,4 @@
-[![Contribute](https://www.eclipse.org/che/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/benoitf/wrkshp-helm)
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://github.com/benoitf/wrkshp-helm)
 
 # Red Hat CodeReady Workspaces Installer for RHPDS
 ![screenshot](../assets/screenshot.png)
