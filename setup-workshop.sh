@@ -24,10 +24,6 @@ printf "🔍 Checking requirements..."
 command -v helm >/dev/null 2>&1 || { printf "❌️\n \e[1;31m🚒 --> helm tool is required and is not installed. Aborting.\e[0m\n"; exit 1; }
 printf "${GREEN_CHECKBOX}%s\n" ""
 
-printf "⚙️  Updating java image..."
-oc patch imagestream --namespace openshift java --patch "$(cat patches/update-java.yaml)" > /dev/null
-printf "${GREEN_CHECKBOX}%s\n" ""
-
 printf "⚙️  Updating CPU limit..."
 oc patch template --namespace openshift-config project-request --type='json' -p="$(cat patches/update-cpu-limit.yaml)"  > /dev/null  && printf "${GREEN_CHECKBOX}%s\n" "" || printf "%s${GREEN_CHECKBOX}\n" "-->  No project request configured "
 
