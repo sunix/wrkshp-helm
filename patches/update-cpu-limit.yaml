@@ -8,5 +8,10 @@
         "op": "replace",
         "path": "/objects/0/spec/limits/0/max/cpu",
         "value": 17
+    },
+    {
+        "op": "replace",
+        "path": "/objects/0/spec/limits/1/max/memory",
+        "value": 14Gi
     }
 ]
