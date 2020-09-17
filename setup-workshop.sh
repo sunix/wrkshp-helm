@@ -69,7 +69,7 @@ while [[ $(oc get pods --all-namespaces --selector="app=codeready,component=code
    sleep 0.5;
 done
 
-CODEREADY_WORKSPACE_LINK="$(oc get consolelink/workspaces --all-namespaces -o 'jsonpath={..href}')"
+CODEREADY_WORKSPACE_LINK="$(oc get CheClusters/codeready-workspaces -n crw -o 'jsonpath={..cheURL}')"
 printf "\33[2K\r🎉 CodeReady Workspaces available at: %s\n" "${CODEREADY_WORKSPACE_LINK}"
 
 WORKSHOP_WORKSPACE_LINK="${CODEREADY_WORKSPACE_LINK}/f/?url=https://github.com/redhat-developer-demos/quarkus-reactjs-postit-app"
